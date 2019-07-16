@@ -1,6 +1,6 @@
-import java.io.IOException;
+package mapreduce;
 
-import java.util.StringTokenizer;
+import java.io.IOException;
 
 import org.apache.hadoop.conf.Configuration;
 
@@ -77,10 +77,10 @@ public class Sort {
 		String[] otherArgs = new GenericOptionsParser(conf, args)
 				.getRemainingArgs();
 		if (otherArgs.length != 2) {
-			System.err.println("Usage WordCount <int> <out>");
+			System.err.println("Usage mapreduce.WordCount <int> <out>");
 			System.exit(2);
 		}
-		Job job = new Job(conf, "Sort");
+		Job job = new Job(conf, "mapreduce.Sort");
 		job.setJarByClass(Sort.class);
 		job.setMapperClass(Map.class);
 		job.setPartitionerClass(Partition.class);
